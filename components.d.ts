@@ -10,5 +10,6 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElSwitch: typeof import('element-plus/es')['ElSwitch']
   }
 }

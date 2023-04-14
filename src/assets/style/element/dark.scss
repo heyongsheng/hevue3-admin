@@ -1,0 +1,32 @@
+@use 'sass:map';
+@use '../theme.scss'as *;
+@forward 'element-plus/theme-chalk/src/dark/var.scss'with ( // 
+  $colors: ( //
+    'white': map.get($dark, --color-white),
+    'black': map.get($dark, --color-black),
+    'primary': ( //
+      'base': map.get($dark, --color-primary),
+    ),
+    'success': ( //
+      'base': map.get($dark, --color-success),
+    ),
+    'warning': ( //
+      'base': map.get($dark, --color-warning),
+    ),
+    'danger': ( //
+      'base': map.get($dark, --color-danger),
+    ),
+    'error': ( //
+      'base': map.get($dark, --color-error),
+    ),
+    'info': ( //
+      'base': map.get($dark, --color-info),
+    ),
+  ),
+  $bg-color: ( //
+    'page': #0a0a0a,
+    '': #141414,
+    'overlay': #1d1e1f,
+  ));
+
+@use "element-plus/theme-chalk/src/dark/css-vars.scss";
