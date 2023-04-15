@@ -9,7 +9,7 @@
       :inactive-icon="Sunny"
       @change="toggleDark"
     />
-    <el-button @click="showMessage">hello</el-button>
+    <el-button type="primary" @click="showMessage">hello</el-button>
   </div>
   <div></div>
 </template>

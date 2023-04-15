@@ -14,7 +14,11 @@ export default defineConfig({
     //   useSource: true,
     // }),
     AutoImport({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [
+        ElementPlusResolver({
+          importStyle: 'sass',
+        }),
+      ],
     }),
     Components({
       resolvers: [
