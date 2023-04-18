@@ -1,17 +1,5 @@
 <template>
-  <div>
-    <el-switch
-      v-model="isDark"
-      class="theme-btn"
-      style="margin-left: 24px"
-      inline-prompt
-      :active-icon="Moon"
-      :inactive-icon="Sunny"
-      @change="toggleDark"
-    />
-    <el-button type="primary" @click="showMessage">hello</el-button>
-  </div>
-  <div></div>
+  <router-view></router-view>
 </template>
 
 <script setup lang="ts">
@@ -29,8 +17,4 @@ const showMessage = () => {
 }
 </script>
 
-<style lang="scss" scoped>
-.test {
-  color: globalScss.$themeColor;
-}
-</style>
+<style lang="scss" scoped></style>

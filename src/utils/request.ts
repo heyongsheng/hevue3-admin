@@ -13,11 +13,8 @@ const service = axios.create({
 
 service.interceptors.request.use(
   (config) => {
-    // const baseURL = config.requestBase || 'VITE_APP_BASE_API'
-
-    // config.baseURL = import.meta.env[baseURL]
     const staffStore = useStaffStore()
-    config.baseURL = '/api'
+    config.baseURL = import.meta.env['VITE_APP_BASE_PREFIX']
 
     if (staffStore.token) {
       config.headers['x-authorization'] = 'Bearer ' + getToken()
