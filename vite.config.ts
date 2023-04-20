@@ -4,6 +4,10 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import path from 'path'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -16,6 +20,10 @@ export default defineConfig(({ mode }) => {
           ElementPlusResolver({
             importStyle: 'sass',
           }),
+          // 自动导入图标组件
+          IconsResolver({
+            prefix: 'Icon',
+          }),
         ],
         imports: ['vue', 'vue-router'],
       }),
@@ -24,7 +32,29 @@ export default defineConfig(({ mode }) => {
           ElementPlusResolver({
             importStyle: 'sass',
           }),
+          // 自动注册图标组件
+          IconsResolver({
+            enabledCollections: ['ep'],
+          }),
         ],
+      }),
+      Icons({
+        autoInstall: true,
+      }),
+      createSvgIconsPlugin({
+        // 指定需要缓存的图标文件夹
+        iconDirs: [path.resolve(process.cwd(), 'src/assets/icons/svg')],
+        // 指定symbolId格式
+        symbolId: 'icon-[dir]-[name]',
+        svgoOptions: {
+          // 移除svg默认颜色
+          plugins: [
+            {
+              name: 'removeAttrs',
+              params: { attrs: ['class', 'data-name', 'fill', 'stroke'] },
+            },
+          ],
+        },
       }),
     ],
     resolve: {
