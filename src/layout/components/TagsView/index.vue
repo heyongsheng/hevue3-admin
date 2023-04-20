@@ -42,7 +42,7 @@ const scrollPane = ref<any>([])
 // 标签栏横向滚动
 const handleScroll = (e: any) => {
   const eventDelta = e.wheelDelta || -e.deltaY * 40
-  let scrollLeft = scrollPane.value?.wrap$.scrollLeft
+  let scrollLeft = scrollPane.value?.wrapRef.scrollLeft
   scrollLeft += eventDelta / 8
   scrollPane.value.setScrollLeft(scrollLeft)
 }
@@ -87,16 +87,19 @@ const addTags = () => {
 }
 
 // 滚动到当前tag
-const tagItem = ref<any[]>([])
+const tagItem = ref<any[]>()
 const moveToCurrentTag = async () => {
   tagItem.value?.forEach((item: any) => {
     if (item.to === route.path) {
+      console.log(item.$el)
+      console.log(scrollPane.value.wrapRef)
+
       // 判断当前元素是否超出屏幕
       const isOut =
         item.$el.offsetLeft + item.$el.offsetWidth >
-          scrollPane.value?.wrap$.offsetWidth +
-            scrollPane.value?.wrap$.scrollLeft ||
-        item.$el.offsetLeft < scrollPane.value?.wrap$.scrollLeft + 20
+          scrollPane.value?.wrapRef.offsetWidth +
+            scrollPane.value?.wrapRef.scrollLeft ||
+        item.$el.offsetLeft < scrollPane.value?.wrapRef.scrollLeft + 20
 
       if (isOut) {
         scrollPane.value?.scrollTo(item.$el.offsetLeft - 20, 0)
