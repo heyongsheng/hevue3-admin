@@ -13,6 +13,7 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 export default defineConfig(({ mode }) => {
   const config = loadEnv(mode, './')
   return {
+    publicPath: './',
     plugins: [
       vue(),
       AutoImport({
