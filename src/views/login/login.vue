@@ -79,8 +79,8 @@ const toggleDark = useToggle(isDark)
 
 // 表单数据
 const sendData = reactive({
-  staff_account: '',
-  password: '',
+  staff_account: 'admin',
+  password: '123456',
 })
 
 // 表单校验规则
