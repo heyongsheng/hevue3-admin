@@ -151,8 +151,8 @@ import useGetGlobalProperties from '@/utils/global'
 const globalProperties = useGetGlobalProperties()
 
 onMounted(() => {
-  getDataListHandle()
   getRoleListHandle()
+  getDataListHandle()
 })
 
 // 获取角色列表
@@ -165,7 +165,8 @@ const getRoleListHandle = async () => {
 // 列表回显角色名称
 const getRoleName = computed<Function>(() => {
   return (roleId: string) => {
-    const obj = roleList.value.find((item: any) => item._id === roleId)
+    const obj =
+      roleList.value && roleList.value.find((item: any) => item._id === roleId)
     return obj?.role_name
   }
 })
