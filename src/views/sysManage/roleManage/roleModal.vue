@@ -44,13 +44,13 @@ import type { FormInstance, FormRules } from 'element-plus'
 const props = defineProps(['menuData'])
 const defaultProps = {
   children: 'children',
-  label: 'title'
+  label: 'title',
 }
 
 // 添加角色
 const addVisible = ref(false)
-const formContent = reactive({
-  role_name: ''
+const formContent = reactive<{ [key: string]: string }>({
+  role_name: '',
 })
 const menuId = ref()
 
@@ -62,9 +62,9 @@ const rules = reactive<FormRules>({
     {
       required: true,
       message: '请输入角色名称',
-      trigger: ['blur', 'change']
-    }
-  ]
+      trigger: ['blur', 'change'],
+    },
+  ],
 })
 
 // 展示弹窗
@@ -110,7 +110,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
     let _api: Function
     let sendDate: any = {
       ...formContent,
-      role_permission: allKeys.join(',')
+      role_permission: allKeys.join(','),
     }
     if (menuId.value) {
       _api = updateRole
@@ -124,7 +124,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
 
       ElNotification.success({
         title: '成功',
-        message: modalName.value + '成功'
+        message: modalName.value + '成功',
       })
       addVisible.value = false
       emit('reloadList')
@@ -138,7 +138,7 @@ const modalClose = () => {
 }
 
 defineExpose({
-  showModal
+  showModal,
 })
 </script>
 <style lang="scss" scoped></style>

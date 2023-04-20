@@ -91,12 +91,12 @@ import { genderDic } from '@/dictionary/user'
 
 // 添加菜单
 const addVisible = ref(false)
-const formContent = reactive({
+const formContent = reactive<any>({
   staff_account: '',
   staff_name: '',
   phone: '',
   roleId: '',
-  gender: genderDic.default
+  gender: genderDic.default,
 })
 const menuId = ref()
 
@@ -109,30 +109,30 @@ const rules = reactive<FormRules>({
     {
       required: true,
       message: '请输入账号',
-      trigger: ['blur', 'change']
-    }
+      trigger: ['blur', 'change'],
+    },
   ],
   staff_name: [
     {
       required: true,
       message: '请输入姓名',
-      trigger: ['blur', 'change']
-    }
+      trigger: ['blur', 'change'],
+    },
   ],
   phone: [
     {
       required: true,
       message: '请输入员工手机号',
-      trigger: ['blur', 'change']
-    }
+      trigger: ['blur', 'change'],
+    },
   ],
   roleId: [
     {
       required: true,
       message: '请选择角色',
-      trigger: ['blur', 'change']
-    }
-  ]
+      trigger: ['blur', 'change'],
+    },
+  ],
 })
 
 const showModal = async (row: any) => {
@@ -162,7 +162,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
   formEl?.validate().then(() => {
     let _api: Function
     let sendDate: any = {
-      ...formContent
+      ...formContent,
     }
     if (menuId.value) {
       _api = updateStaff
@@ -176,7 +176,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
 
       ElNotification.success({
         title: '成功',
-        message: modalName.value + '成功'
+        message: modalName.value + '成功',
       })
       addVisible.value = false
       emit('reloadList')
@@ -190,7 +190,7 @@ const modalClose = () => {
 }
 
 defineExpose({
-  showModal
+  showModal,
 })
 </script>
 <style lang="scss" scoped></style>

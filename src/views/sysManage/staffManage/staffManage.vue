@@ -156,7 +156,7 @@ onMounted(() => {
 })
 
 // 获取角色列表
-const roleList = ref([])
+const roleList = ref()
 const getRoleListHandle = async () => {
   const res = await getRoleList({ page_num: 1, page_size: 100 })
   roleList.value = res.data.list
@@ -182,7 +182,7 @@ const listQuery = reactive({
   gender: '',
   page_num: 1,
   page_size: 10,
-  roleId: ''
+  roleId: '',
 })
 // 筛选
 const searchHandle = () => {
@@ -190,7 +190,7 @@ const searchHandle = () => {
   getDataListHandle()
 }
 // 重置
-const searchForm = ref(null)
+const searchForm = ref()
 const resetSearch = () => {
   searchForm.value.resetFields()
   searchHandle()
@@ -212,7 +212,7 @@ const handleCurrentChange = (val: number) => {
 }
 
 // 展示新增、编辑弹窗
-const staffPopRef = ref(null)
+const staffPopRef = ref()
 const showModal = (row?: Object) => {
   staffPopRef.value.showModal(row)
 }
@@ -224,7 +224,7 @@ const changeStatusHandle = (id: string, status: string) => {
   updateStaffStatus({ _id: id, status }).then(() => {
     ElNotification.success({
       title: '成功',
-      message: '修改员工状态成功'
+      message: '修改员工状态成功',
     })
     isLoading.value = false
     getDataListHandle()
