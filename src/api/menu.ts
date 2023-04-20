@@ -2,6 +2,10 @@ import request from '@/utils/request'
 
 // 新建菜单
 export function createMenu(data: any): any {
+  ElNotification.error({
+    title: '错误',
+    message: '抱歉，您没有相关权限',
+  })
   return Promise.reject({
     code: 500,
     data: '抱歉，您没有相关权限',
@@ -10,6 +14,10 @@ export function createMenu(data: any): any {
 
 // 修改菜单
 export function updateMenu(data: any): any {
+  ElNotification.error({
+    title: '错误',
+    message: '抱歉，您没有相关权限',
+  })
   return Promise.reject({
     code: 500,
     data: '抱歉，您没有相关权限',
@@ -18,6 +26,10 @@ export function updateMenu(data: any): any {
 
 // 删除菜单
 export function deleteMenu(data: any): any {
+  ElNotification.error({
+    title: '错误',
+    message: '抱歉，您没有相关权限',
+  })
   return Promise.reject({
     code: 500,
     data: '抱歉，您没有相关权限',

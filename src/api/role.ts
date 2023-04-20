@@ -2,6 +2,10 @@ import request from '@/utils/request'
 
 // 添加角色
 export function createRole(data: any): any {
+  ElNotification.error({
+    title: '错误',
+    message: '抱歉，您没有相关权限',
+  })
   return Promise.reject({
     code: 500,
     data: '抱歉，您没有相关权限',
@@ -10,6 +14,10 @@ export function createRole(data: any): any {
 
 // 更新角色信息
 export function updateRole(data: any): any {
+  ElNotification.error({
+    title: '错误',
+    message: '抱歉，您没有相关权限',
+  })
   return Promise.reject({
     code: 500,
     data: '抱歉，您没有相关权限',
@@ -49,6 +57,10 @@ export function getRoleList(query: any): any {
 
 // 删除角色
 export function deleteRole(data: any): any {
+  ElNotification.error({
+    title: '错误',
+    message: '抱歉，您没有相关权限',
+  })
   return Promise.reject({
     code: 500,
     data: '抱歉，您没有相关权限',

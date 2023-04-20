@@ -11,6 +11,10 @@ export function login(data: any): any {
 
 // 添加员工
 export function createStaff(data: any): any {
+  ElNotification.error({
+    title: '错误',
+    message: '抱歉，您没有相关权限',
+  })
   return Promise.reject({
     code: 500,
     data: '抱歉，您没有相关权限',
@@ -19,6 +23,10 @@ export function createStaff(data: any): any {
 
 // 更新员工信息
 export function updateStaff(data: any): any {
+  ElNotification.error({
+    title: '错误',
+    message: '抱歉，您没有相关权限',
+  })
   return Promise.reject({
     code: 500,
     data: '抱歉，您没有相关权限',
@@ -51,6 +59,10 @@ export function updatePassword(data: {
   captcha: string
   password: string
 }): Promise<Object> {
+  ElNotification.error({
+    title: '错误',
+    message: '抱歉，您没有相关权限',
+  })
   return Promise.reject({
     code: 500,
     data: '抱歉，您没有相关权限',
@@ -120,6 +132,10 @@ export function getStaffList(query: any): any {
 
 // 修改员工状态
 export function updateStaffStatus(data: any): any {
+  ElNotification.error({
+    title: '错误',
+    message: '抱歉，您没有相关权限',
+  })
   return Promise.reject({
     code: 500,
     data: '抱歉，您没有相关权限',
