@@ -11,7 +11,7 @@ interface Staff {
 export const useStaffStore = defineStore('staff', {
   state: () => ({
     token: getToken() || '',
-    staff: null,
+    staff: ref<any>(),
   }),
   actions: {
     setToken(token: string) {
