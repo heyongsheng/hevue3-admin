@@ -13,7 +13,7 @@ const modules = import.meta.glob('../views/**/**.vue')
 export const usePermissionStore = defineStore('permission', {
   state: () => ({
     routes: new Array<any>(),
-    permissions: [],
+    permissions: new Array<any>(),
   }),
   actions: {
     async getAccessRoutes() {
