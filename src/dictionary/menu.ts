@@ -16,7 +16,7 @@ export const menuTestDic: object = {
 }
 
 // 菜单是否隐藏
-export const menuHideDic: boolRadio | defaultType = {
+export const menuHideDic: boolRadio & defaultType = {
   '0': '否',
   '1': '是',
   trueValue: '1',
@@ -30,7 +30,7 @@ Object.defineProperty(menuHideDic, 'default', {
 })
 
 // 菜单是缓存
-export const menuCacheDic: boolRadio | defaultType = {
+export const menuCacheDic: boolRadio & defaultType = {
   '0': '否',
   '1': '是',
   trueValue: '1',
@@ -44,7 +44,7 @@ Object.defineProperty(menuCacheDic, 'default', {
 })
 
 // 菜单是否固定到标签栏
-export const menuAffixDic: boolRadio | defaultType = {
+export const menuAffixDic: boolRadio & defaultType = {
   '0': '否',
   '1': '是',
   trueValue: '1',
@@ -59,7 +59,7 @@ Object.defineProperty(menuAffixDic, 'default', {
 })
 
 // 是否常显菜单栏
-export const menuAlwaysShowDic: boolRadio | defaultType = {
+export const menuAlwaysShowDic: boolRadio & defaultType = {
   '0': '否',
   '1': '是',
   trueValue: '1',
